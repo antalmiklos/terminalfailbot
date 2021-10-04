@@ -22,8 +22,6 @@ class Tweet:
         self.auth.set_access_token(AKEY, ASECRET)
 
     def send_message(self):
-        if not self.message:
-            return
         print(self.message)
         self.api.update_status(self.message)
 
