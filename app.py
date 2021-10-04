@@ -18,7 +18,6 @@ verbose_mode = True
 def submit_message():
     content = json.loads(request.get_json())
     print(content)
-
     tweet = Tweet(content['message'], content['author'], config)
     try:
         tweet.send_message()
