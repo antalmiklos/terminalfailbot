@@ -31,10 +31,10 @@ git clone https://github.com/antalmiklos/terminalfailbot
 pip3 install -r terminalfailbot/requirements.txt
 
 # ZSH
-echo 'function command_not_found_handler() {python3 $HOME/repos/terminalfailbot/terminalfail.py "$@"}' > ~/.zshrc
+echo 'function command_not_found_handler() {python3 $HOME/repos/terminalfailbot/terminalfail.py "$@"}' >> ~/.zshrc
 
 # BASH
-echo 'function command_not_found_handle() {python3 $HOME/repos/terminalfailbot/terminalfail.py "$@"}' > ~/.bashrc
+echo 'function command_not_found_handle() {python3 $HOME/repos/terminalfailbot/terminalfail.py "$@"}' >> ~/.bashrc
 
 ```
 
