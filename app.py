@@ -13,11 +13,10 @@ configpath = configpath.absolute()
 config = None
 
 app = Flask(__name__)
-
+verbose_mode = True
 @app.route('/submit', methods=['POST'])
 def submit_message():
     content = request.json
-    print(content)
     tweet = Tweet(content['message'], content['author'], config)
     try:
         tweet.send_message()
