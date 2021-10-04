@@ -24,6 +24,7 @@ class Tweet:
     def send_message(self):
         if not self.message:
             return
+        print(self.message)
         self.api.update_status(self.message)
 
     @staticmethod
