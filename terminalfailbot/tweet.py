@@ -8,7 +8,7 @@ class Tweet:
     def __init__(self, message, author, config):
         self.config = config
         self.author = author
-        self.message = f'{message} @{author}'
+        self.message = f'{message} @{self.author}'
         self.set_credentials()
         self.api = tweepy.API(self.auth)
     
