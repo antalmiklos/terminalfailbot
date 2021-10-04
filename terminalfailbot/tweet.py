@@ -5,9 +5,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Tweet:
-    def __init__(self, message, config):
+    def __init__(self, message, author, config):
         self.config = config
-        self.message = Tweet.parse_message(message)
+        self.author = author
+        self.message = Tweet.parse_message(message, author)
         self.set_credentials()
         self.api = tweepy.API(self.auth)
     
@@ -26,12 +27,14 @@ class Tweet:
         self.api.update_status(self.message)
 
     @staticmethod
-    def parse_message(message):
+    def parse_message(message, author):
         msg = message.split(';')
         # only use messages with an exit code
         if(len(msg) != 2):
             return False
-        message = f'Command: {msg[0]} --- Exit code: {msg[1]}'
+        message = f'Command: {msg[0]} --- Exit code: {msg[1]} @{author}'
+
         if len(message) > 280:
             return
+
         return message
