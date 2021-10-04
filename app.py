@@ -5,10 +5,13 @@ from dotenv import load_dotenv
 import sys, getopt
 import json
 import os
+from pathlib import Path
 
+configpath = Path(f"{os.path.split(os.path.realpath(__file__))[0]}/config.json")
+configpath = configpath.absolute()
 config = None
 
-with open (os.path.abspath('repos/terminalfailbot/config.json'), 'r') as f:
+with open (configpath, 'r') as f:
     config = json.loads(f.read())
 
 verbose_mode = bool(config['verbose_mode'])
