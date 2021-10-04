@@ -16,7 +16,6 @@ class Tweet:
             'http://164.90.209.245:5000/submit', 
             json=self.message,
             headers={'Content-type': 'application/json'})
-        print(self.message)
 
     def parse_message(self, message):
         msg = message.split(';')
