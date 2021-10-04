@@ -16,7 +16,7 @@ app = Flask(__name__)
 verbose_mode = True
 @app.route('/submit', methods=['POST'])
 def submit_message():
-    content = json.loads(request.json)
+    content = json.load(request.json)
     print(content)
 
     tweet = Tweet(content['message'], content['author'], config)
