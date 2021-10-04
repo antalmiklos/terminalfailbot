@@ -12,10 +12,10 @@ class Tweet:
         self.message = self.parse_message(message)    
 
     def send_message(self):
-        requests.post(
+        r = requests.post(
             'http://164.90.209.245:5000/submit', 
-            json=json.dumps(self.message),
-            headers={'Content-type': 'application/json', 'Accept': 'text/plain'})
+            json=self.message,
+            headers={'Content-type': 'application/json'})
 
     def parse_message(self, message):
         msg = message.split(';')
@@ -23,11 +23,12 @@ class Tweet:
         if(len(msg) != 2):
             return False
 
-        message = f'Command: {msg[0]} --- Exit code: {msg[1]}'
+        msg = f'Command: {msg[0]} --- Exit code: {msg[1]}'
         if len(message) > 280:
             return
         message = {
             "author": self.config['author'],
-            "message": message
+            "message": msg
         }
+        self.message = json.dumps(message)
         return message

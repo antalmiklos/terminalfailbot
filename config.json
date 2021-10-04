@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 {
     "author": "terminalfail",
     "blacklist_regex": [
         "$mysql?"
     ]
 }
-=======
-teeheee
->>>>>>> 9b89494a51df0bd6788a85c253c9bb4fb1771e80
