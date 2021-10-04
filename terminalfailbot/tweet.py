@@ -9,13 +9,14 @@ load_dotenv()
 class Tweet:
     def __init__(self, message, config):
         self.config = config
-        self.message = self.parse_message(message)    
+        self.parse_message(message)    
 
     def send_message(self):
         r = requests.post(
             'http://164.90.209.245:5000/submit', 
             json=self.message,
             headers={'Content-type': 'application/json'})
+        print(self.message)
 
     def parse_message(self, message):
         msg = message.split(';')
@@ -31,4 +32,3 @@ class Tweet:
             "message": msg
         }
         self.message = json.dumps(message)
-        return message
