@@ -14,7 +14,7 @@ git clone --branch zsh https://github.com/antalmiklos/terminalfailbot
 pip3 install -r terminalfailbot/requirements.txt
 
 # ZSH
-source $HOME/repos/terminalfailbot/terminalfail.sh
+echo 'source $HOME/repos/terminalfailbot/terminalfail.sh' >> $HOME/.zshrc
 
 # BASH
 WIP
