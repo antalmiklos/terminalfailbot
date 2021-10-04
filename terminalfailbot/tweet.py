@@ -31,7 +31,7 @@ class Tweet:
         # only use messages with an exit code
         if(len(msg) != 2):
             return False
-        message = f'Command: {msg[0]} --- Exit code: {msg[1]} @{author}'
+        message = f'{self.message} @{author}'
 
         if len(message) > 280:
             return
