@@ -31,7 +31,7 @@ then
     function command_not_found_handler() {
         python3 $HOME/repos/terminalfailbot/app.py "${LASTCOMMAND};127"
     }
-    function sendUpdate() {
+    function precmd() {
         lastcode=$?
         cmd=${history[$HISTCMD]}
         echo ${cmd}
@@ -40,6 +40,4 @@ then
                 python3 $HOME/repos/terminalfailbot/app.py "${LASTCOMMAND};${lastcode}"
             fi
         }
-    typeset -a precmd_functions
-    precmd_functions+=(sendUpdate)
 fi

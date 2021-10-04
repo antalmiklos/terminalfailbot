@@ -1,37 +1,33 @@
 import tweepy
 import os
 from dotenv import load_dotenv
+import requests
+import json
 
 load_dotenv()
 
 class Tweet:
     def __init__(self, message, config):
         self.config = config
-        self.message = Tweet.parse_message(message)
-        self.set_credentials()
-        self.api = tweepy.API(self.auth)
-    
-    def set_credentials(self):
-        CKEY = self.config['consumer_token']
-        CSECRET = self.config['consumer_token_secret']
-        AKEY = self.config['access_token']
-        ASECRET = self.config['access_token_secret']
-
-        self.auth = tweepy.OAuthHandler(CKEY, CSECRET)
-        self.auth.set_access_token(AKEY, ASECRET)
+        self.message = self.parse_message(message)    
 
     def send_message(self):
-        if not self.message:
-            return
-        self.api.update_status(self.message)
+        requests.post(
+            'http://164.90.209.245:5000/submit', 
+            json=json.dumps(self.message),
+            headers={'Content-type': 'application/json', 'Accept': 'text/plain'})
 
-    @staticmethod
-    def parse_message(message):
+    def parse_message(self, message):
         msg = message.split(';')
         # only use messages with an exit code
         if(len(msg) != 2):
             return False
+
         message = f'Command: {msg[0]} --- Exit code: {msg[1]}'
         if len(message) > 280:
             return
+        message = {
+            "author": self.config['author'],
+            "message": message
+        }
         return message

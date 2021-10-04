@@ -1,10 +1,5 @@
 {
-    "verbose_mode": "False",
-    "load_from_env": "False",
-    "access_token": "1444961032422793220-29vu3ZCkuZQrgIivUXuYVAL5ieZxUX",
-    "access_token_secret": "kdgOfns2SJvn2DuRVKwVbszcYpmNdOgE49E1ktEBBseqL",
-    "consumer_token": "ZYFDSOS5cMJCVr3pD62AKJXZf",
-    "consumer_token_secret": "mCWPUAioAN8wI7GsOjB24aBLf4JSgCqh6NvRW9H0pF6VARxzVS",
+    "author": "terminalfail",
     "blacklist_regex": [
         "$mysql?"
     ]
