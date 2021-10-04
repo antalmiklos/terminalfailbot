@@ -1,44 +1,22 @@
 # terminalfailbot
 
-## .env file
+## config.json
 
-### CTOKEN
-
-Consumer Key API token
-
-
-### CSECRET
-
-Consumer Key API token secret
-
-### ATOKEN
-
-Access token
-
-
-### ASECRET
-
-Access token secret
-
+Add your twitter handler, so we can find you, you dirty, mistyping scum
 
 ## install
 
 ```
 mkdir repos
 cd repos
-git clone https://github.com/antalmiklos/terminalfailbot
+git clone --branch zsh https://github.com/antalmiklos/terminalfailbot
 
 pip3 install -r terminalfailbot/requirements.txt
 
 # ZSH
-echo 'function command_not_found_handler() {python3 $HOME/repos/terminalfailbot/terminalfail.py "$@"}' >> ~/.zshrc
+source $HOME/repos/terminalfailbot/terminalfail.sh
 
 # BASH
-echo 'function command_not_found_handle() { python3 $HOME/repos/terminalfailbot/terminalfail.py "$@" ; }' >> ~/.bashrc
+WIP
 
 ```
-
-
-## zshrc
-
-function command_not_found_handler() {python3 $HOME/repos/terminalfailbot/terminalfail.py "$@"}
