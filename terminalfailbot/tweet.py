@@ -27,6 +27,8 @@ class Tweet:
         msg = f'Command: {msg[0]} --- Exit code: {msg[1]}'
         if len(message) > 280:
             return
-        message = {"author": self.config['author'],"message": msg}
-        print(message)
-        self.message = message
+        message = dict(
+            author=self.config['author'],
+            message=msg
+        )
+        self.message = json.dumps(message)
